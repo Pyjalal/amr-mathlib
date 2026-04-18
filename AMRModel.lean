@@ -20,7 +20,7 @@ R0_ICU(hh=0.80) = (1−h)·β_ICU / (μ_ICU + δ_ICU)
                 = 6783 / 6896  ≈ 0.984 < 1
 
 Proof: numerator 6783 < denominator 6896, denominator > 0.
-       By Rat.div_lt_self (reverse): if num < denom then num/denom < 1.
+       By Rat.div_lt_self: if num < denom then num/denom < 1.
 -/
 theorem T4_ICU_subcritical : (6783 : ℚ) / (6896 : ℚ) < 1 := by
   have num_lt_denom : (6783 : ℚ) < (6896 : ℚ) := by norm_num
@@ -33,8 +33,6 @@ theorem T4_ICU_subcritical : (6783 : ℚ) / (6896 : ℚ) < 1 := by
 R0_GER(hh=0.80) = (1−h)·β_GER / (μ_GER + δ_GER)
                 = 0.20 × 90/100 × 126 / (1/14 + 1/21)
                 = 9639 / 10021  ≈ 0.962 < 1
-
-Proof: numerator 9639 < denominator 10021.
 -/
 theorem T5_GER_subcritical : (9639 : ℚ) / (10021 : ℚ) < 1 := by
   have num_lt_denom : (9639 : ℚ) < (10021 : ℚ) := by norm_num
@@ -48,4 +46,4 @@ theorem S2_HH_eliminates_self_sustaining :
   (6783 : ℚ) / (6896 : ℚ) < 1 ∧ (9639 : ℚ) / (10021 : ℚ) < 1 :=
   ⟨T4_ICU_subcritical, T5_GER_subcritical⟩
 
-#eval "Commit 2/5 ✓ — HH effect: ICU=0.984, GER=0.962 (both < 1, sub-critical)"
+#eval "Commit 2/5 ✓ — HH effect: ICU=0.984, GER=0.962 (both < 1)"
